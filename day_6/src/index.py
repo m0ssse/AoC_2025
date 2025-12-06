@@ -55,18 +55,6 @@ def transpose(block):
         transposed.append(new_row)
     return transposed
 
-def get_sum(lines, j):
-    res = 0
-    for i in range(len(lines)-1):
-        res+=int(lines[i][j])
-    return res
-
-def get_product(lines, j):
-    res = 1
-    for i in range(len(lines)-1):
-        res*=int(lines[i][j])
-    return res
-
 def part1(blocks):
     return sum([evaluate(block) for block in blocks])
 
