@@ -9,13 +9,7 @@ def make_graph(grid):
             if c=="S":
                 neighbs[(i, j)] = [find_next_splitter(grid, i, j)]
             elif c=="^":
-                neighbs[(i, j)] = []
-                next1 = find_next_splitter(grid, i, j+1)
-                if next1:
-                    neighbs[(i, j)].append(next1)
-                next2 = find_next_splitter(grid, i, j-1)
-                if next2:
-                    neighbs[(i, j)].append(next2)
+                neighbs[(i, j)] = [find_next_splitter(grid, i, j+1), find_next_splitter(grid, i, j-1)]
     return neighbs
 
 def invert_graph(graph):
@@ -36,7 +30,6 @@ def find_next_splitter(grid, i, j):
 
 def part1(grid):
     graph = make_graph(grid)
-    #print(graph)
     n = len(grid)
     visited = set()
     for j, c in enumerate(grid[0]):
