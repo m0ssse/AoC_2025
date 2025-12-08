@@ -1,4 +1,6 @@
 from itertools import combinations
+from time import time
+from heapq import heapify, heappop
 
 class UnionFind:
     def __init__(self, nodes):
@@ -42,10 +44,10 @@ def solve(nodes, N):
     edges = []
     for p1, p2 in combinations(nodes, 2):
         edges.append((distance(p1, p2), p1, p2))
-    edges.sort()
+    heapify(edges)
     i = 0
     while uf.components>1:
-        _, p1, p2 = edges[i]
+        _, p1, p2 = heappop(edges)
         i+=1
         uf.merge(p1, p2)
         if i==N:
@@ -53,8 +55,11 @@ def solve(nodes, N):
     return ans1[0]*ans1[1]*ans1[2], p1[0]*p2[0]
 
 if __name__=="__main__":
+    t1 = time()
     #fname, N = "test.txt", 10
     fname, N = "input.txt", 1000
     nodes = read_input(fname)
     print(solve(nodes, N))
+    t2 = time()
+    print(t2-t1)
     
