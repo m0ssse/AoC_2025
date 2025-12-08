@@ -38,7 +38,7 @@ def distance(p1, p2):
         d+=(a-b)**2
     return sqrt(d)
 
-def part1(nodes, N):
+def solve(nodes, N):
     uf = UnionFind(nodes)
     edges = []
     for p1, p2 in combinations(nodes, 2):
@@ -57,5 +57,5 @@ if __name__=="__main__":
     #fname, N = "test.txt", 10
     fname, N = "input.txt", 1000
     nodes = read_input(fname)
-    print(part1(nodes, N))
+    print(solve(nodes, N))
     
