@@ -1,5 +1,4 @@
 from itertools import combinations
-from math import sqrt
 
 class UnionFind:
     def __init__(self, nodes):
@@ -36,7 +35,7 @@ def distance(p1, p2):
     d = 0
     for a, b in zip(p1, p2):
         d+=(a-b)**2
-    return sqrt(d)
+    return d
 
 def solve(nodes, N):
     uf = UnionFind(nodes)
