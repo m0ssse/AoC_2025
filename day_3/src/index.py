@@ -13,8 +13,7 @@ def part1(fname):
     with open(fname) as file:
         for line in file:
             x = find_highest_number(line.strip(), 2, 0)
-            res+=x
-            
+            res+=x         
     return res
 
 def part2(fname):
