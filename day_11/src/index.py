@@ -7,17 +7,6 @@ def read_input(fname):
             graph[parent] = children.split()
     return graph
 
-def invert_graph(graph):
-    inverted = {}
-    for node, children in graph.items():
-        if node not in inverted:
-            inverted[node] = []
-        for c in children:
-            if c not in inverted:
-                inverted[c] = []
-            inverted[c].append(node)
-    return inverted
-
 def part1(graph):
     ways = {"out": 1}
     blacklist = set()
