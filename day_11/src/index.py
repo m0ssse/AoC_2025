@@ -70,4 +70,5 @@ def count_paths_from(graph, node, ways, blacklist):
 if __name__=="__main__":
     fname = "input.txt"
     graph = read_input(fname)
+    print(part1(graph))
     print(part2(graph))
